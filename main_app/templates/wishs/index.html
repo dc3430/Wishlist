@@ -10,35 +10,29 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   </head>
   <body>
-
     <h1>Wish list Items</h1>
     {% if item_list|length == 0 %}
         <h3>No Wish Items Exits<h3>
     {% else %}
-    {% comment %} class="pure-table pure-table-striped"
-         {% endcomment %}
-      <table>
+      <table class="pure-table pure-table-striped">
         <thread>
             <tr>description</tr>
             <tr>quantity</tr>
         <thread>
-            <tr>
-                <td>{{wish.description}}</td>
-                <td>{{wish.quantity}}</td>   
-            </tr>
+
             {% for wish in wishs %}
                 <tr>
-                    <th>{{wish.description}}</th>
-                    <th><a href="{% url 'wish_delete' item.id %}">X</a></th>
+                    <td>{{wish.description}}</td>
+                    <td><a href="{% url 'wish_delete' wish.id %}">X</a></td>
                 </tr>
             {% endfor %}
       </table>
       {% endif %}
     <hr>
-    {% comment %} <a href="{% url 'add' %}">Add A Wish item</a>     {% endcomment %}
-    {% comment %} <form method="GET" action="{% url 'wish_create' %}">
+    
+    <form method="GET" action="{% url 'wish_create' %}">
         <input type="submit" value="Add a Wish Item">
-    </form> {% endcomment %}
+    </form> 
   </body>
 </html>
 
