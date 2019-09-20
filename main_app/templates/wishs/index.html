@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Wish list</h1>
+
+{% for wish in wishs %}
+  <a href="{% url 'detail' wish.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ wish.name }}</span>
+            
+            <p>Description: {{ wish.description }}</p>
+            
+        </div>
+    </div>
+  </a>
+{% endfor %}
+
+{% endblock %}
