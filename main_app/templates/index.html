@@ -11,7 +11,7 @@
   </head>
   <body>
     <h1>Wish List</h1>
-    {% if items|length == 0 %}
+    {% if wishs|length == 0 %}
         <h3>No Wish Items Exist</h3>
     {% else %}
         <table class="pure-table pure-table-striped">
@@ -22,11 +22,13 @@
                 </tr>
             </thead>
             {% for wish in wishs %}
+                <tbody>
                 <tr>
                     <th>{{wish.description}}</th>
-                    <th><a href="{% url 'wishs_delete' wish.id %}">X</a></th>
+                    <th><a href="{% url 'wish_delete' wish.id %}">X</a></th>
                 </tr>
-            {% endfor %}
+                {% endfor %}
+            </tbody>
         </table>
     {% endif %}
     <hr>
